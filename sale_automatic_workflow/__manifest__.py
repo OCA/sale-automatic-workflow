@@ -9,7 +9,7 @@
     "category": "Sales Management",
     "license": "AGPL-3",
     "author": "Akretion, Camptocamp, Sodexis, Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/sale-workflow",
+    "website": "https://github.com/OCA/sale-automatic-workflow",
     "depends": ["sale"],
     "data": [
         "security/ir.access.csv",
