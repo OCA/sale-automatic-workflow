@@ -35,7 +35,7 @@ class TestWorkflowCopy(TestCommon):
         )
 
     def _set_mode(self, mode):
-        self.env["ir.config_parameter"].sudo().set_param(
+        self.env["ir.config_parameter"].sudo().set_str(
             "sale_automatic_workflow.sale_workflow_copy_mode", mode
         )
 

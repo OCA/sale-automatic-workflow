@@ -173,7 +173,7 @@ class AutomaticWorkflowJob(models.Model):
                 )
 
     def _register_payment_invoice(self, invoice):
-        self = self.with_company(invoice.company_id)
+        job = self.with_company(invoice.company_id)
         # Never create a payment that settles nothing. Such a payment leaves
         # the invoice exactly as it found it, so the invoice keeps matching
         # the payment filter and a new payment is created on every run of the
@@ -183,9 +183,9 @@ class AutomaticWorkflowJob(models.Model):
                 "Skipping payment registration for %s: residual amount is zero.",
                 invoice.display_name,
             )
-            return self.env["account.payment"]
-        payment = self.env["account.payment"].create(
-            self._prepare_dict_account_payment(invoice)
+            return job.env["account.payment"]
+        payment = job.env["account.payment"].create(
+            job._prepare_dict_account_payment(invoice)
         )
         payment.action_post()
 
@@ -193,7 +193,7 @@ class AutomaticWorkflowJob(models.Model):
             (
                 "account_type",
                 "in",
-                self.env["account.payment"]._get_valid_payment_account_types(),
+                job.env["account.payment"]._get_valid_payment_account_types(),
             ),
             ("reconciled", "=", False),
         ]

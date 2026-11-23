@@ -39,7 +39,7 @@ class SaleOrder(models.Model):
         return (
             self.env["ir.config_parameter"]
             .sudo()
-            .get_param("sale_automatic_workflow.sale_workflow_copy_mode", "no_copy")
+            .get_str("sale_automatic_workflow.sale_workflow_copy_mode", "no_copy")
         )
 
     def copy_data(self, default=None):
