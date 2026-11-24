@@ -4,7 +4,7 @@
 {
     "name": "Sale Automatic Workflow Job",
     "summary": "Execute sale automatic workflows in queue jobs",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales Management",
     "license": "AGPL-3",
     "author": "Camptocamp, Odoo Community Association (OCA)",

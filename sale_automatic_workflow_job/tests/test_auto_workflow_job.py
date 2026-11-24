@@ -43,9 +43,7 @@ class TestAutoWorkflowJob(TestCommon, TestAutomaticWorkflowMixin):
                 self.env["automatic.workflow.job"]._do_validate_sale_order,
                 args=args,
                 kwargs={},
-                properties=dict(
-                    identity_key=identity_exact,
-                ),
+                properties={"identity_key": identity_exact},
             )
             trap.perform_enqueued_jobs()
             trap.assert_jobs_count(
@@ -81,9 +79,7 @@ class TestAutoWorkflowJob(TestCommon, TestAutomaticWorkflowMixin):
                 self.env["automatic.workflow.job"]._do_create_invoice,
                 args=args,
                 kwargs={},
-                properties=dict(
-                    identity_key=identity_exact,
-                ),
+                properties={"identity_key": identity_exact},
             )
 
     def test_validate_invoice(self):
@@ -113,9 +109,7 @@ class TestAutoWorkflowJob(TestCommon, TestAutomaticWorkflowMixin):
                 self.env["automatic.workflow.job"]._do_validate_invoice,
                 args=args,
                 kwargs={},
-                properties=dict(
-                    identity_key=identity_exact,
-                ),
+                properties={"identity_key": identity_exact},
             )
 
     def test_sale_done(self):
@@ -151,9 +145,7 @@ class TestAutoWorkflowJob(TestCommon, TestAutomaticWorkflowMixin):
                 self.env["automatic.workflow.job"]._do_sale_done,
                 args=args,
                 kwargs={},
-                properties=dict(
-                    identity_key=identity_exact,
-                ),
+                properties={"identity_key": identity_exact},
             )
 
     def test_job_prepare_context_before_enqueue_keys(self):
