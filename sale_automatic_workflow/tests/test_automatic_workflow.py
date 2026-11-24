@@ -115,7 +115,8 @@ class TestAutomaticWorkflow(TestCommon, TestAutomaticWorkflowMixin):
 
     def test_06_journal_on_invoice(self):
         sale_journal = self.env["account.journal"].search(
-            [("type", "=", "sale")], limit=1
+            [("type", "=", "sale"), ("company_id", "=", self.env.company.id)],
+            limit=1,
         )
         new_sale_journal = self.env["account.journal"].create(
             {"name": "TTSA", "code": "TTSA", "type": "sale"}

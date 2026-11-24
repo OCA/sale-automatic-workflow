@@ -94,6 +94,7 @@ class TestMultiCompanyCommon(AccountTestInvoicingCommon):
                 queue_job__no_delay=True,
             )
         )
+        cls.env.user.group_ids += cls.env.ref("sales_team.group_sale_manager")
         cls.company_fr = cls.setup_other_company(
             name="French company",
             currency_id=cls.env.ref("base.EUR").id,
@@ -162,7 +163,7 @@ class TestMultiCompanyCommon(AccountTestInvoicingCommon):
         )
 
         cls.auto_wkf = cls.env.ref("sale_automatic_workflow.automatic_validation")
-        cls.env.user.company_id = cls.env.ref("base.main_company")
+        cls.env.user.company_id = cls.company_data["company"]
 
     def create_auto_wkf_order(self, company, customer, product, qty):
         # We need to change to the proper company
